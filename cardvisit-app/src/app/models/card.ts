@@ -1,5 +1,5 @@
-import { title } from 'process';
 export interface Card {
+  id?:number;
   name?:string;
   title:string;
   phone:string;

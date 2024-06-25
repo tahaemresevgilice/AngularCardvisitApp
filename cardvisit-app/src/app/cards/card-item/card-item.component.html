@@ -1,7 +1,7 @@
 <mat-card class="card-item" appearance="outlined">
-  <mat-card-header>
+  <mat-card-header (click)="openUpdateCardModal(cardItem)">
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{cardItem.name}}</mat-card-title>
+    <mat-card-title>{{cardItem.name || "-"}}</mat-card-title>
     <mat-card-subtitle>{{cardItem.title}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

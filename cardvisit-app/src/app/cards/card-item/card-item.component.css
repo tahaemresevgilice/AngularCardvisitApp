@@ -1,3 +1,6 @@
 .no-content{
   font-size: 14px;
 }
+mat-card-header{
+  cursor: pointer;
+}

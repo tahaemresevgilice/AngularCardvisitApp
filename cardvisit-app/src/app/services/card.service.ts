@@ -16,4 +16,12 @@ export class CardService implements OnInit {
   getCards():Observable<Card[]> {
     return this.http.get<Card[]>(this.api +"cards");
   }
+
+  addCard(card:Card){
+    return this.http.post(this.api + "cards", card);
+  }
+
+  updateCard(card:Card,cardId:number) :Observable<any>{
+    return this.http.put(this.api + "cards/" + cardId , card);
+  }
 }
