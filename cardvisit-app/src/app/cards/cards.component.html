@@ -9,8 +9,8 @@
     <hr>
   <div class="cards">
     <div class="row">
-      <div class="col-12 col-md-3">
-        <app-card-item [cardItem]="cardItem"></app-card-item>
+      <div class="col-12 col-md-3" *ngFor="let card of cards">
+        <app-card-item [cardItem]="card"></app-card-item>
       </div>
     </div>
   </div>

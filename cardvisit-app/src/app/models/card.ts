@@ -1,8 +1,8 @@
 import { title } from 'process';
 export interface Card {
-  name:string;
+  name?:string;
   title:string;
   phone:string;
-  email:string;
-  address:string;
+  email?:string;
+  address?:string;
 }
