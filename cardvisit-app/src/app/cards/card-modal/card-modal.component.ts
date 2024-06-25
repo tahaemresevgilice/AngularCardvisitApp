@@ -12,6 +12,7 @@ import { Card } from '../../models/card';
 export class CardModalComponent implements OnInit {
 
   cardform!:FormGroup;
+  shopSpiner:boolean=false;
 
   constructor(private fb:FormBuilder,private cardService:CardService,private dialogRef:MatDialogRef<CardModalComponent>,private snackBar: MatSnackBar,@Inject(MAT_DIALOG_DATA)public data:Card){}
   ngOnInit(){
@@ -25,16 +26,19 @@ export class CardModalComponent implements OnInit {
     });
   }
   addCard():void{
-    console.log(this.cardform.value);
+    this.shopSpiner=true;
     this.cardService.addCard(this.cardform.value).subscribe((res)=> {
       console.log(res);
       this.snackBar.open('Kartvizit başarıya eklendi.','',{
         duration:4000,
       });
+      this.cardService.getCards();
+      this.shopSpiner=false
       this.dialogRef.close(true);
     });
   }
   updateCard(): void {
+    this.shopSpiner=true;
     if (this.data?.id !== undefined) {
       this.cardService.updateCard(this.cardform.value, this.data.id).subscribe((res: any) => {
         console.log(res);
@@ -52,5 +56,32 @@ export class CardModalComponent implements OnInit {
         duration: 4000,
       });
     }
+    this.cardService.getCards();
+    this.shopSpiner=false;
+    this.dialogRef.close(true);
+  }
+  deleteCard(): void{
+    this.shopSpiner=true;
+    if (this.data?.id !== undefined) {
+    this.cardService.deleteCard(this.data.id).subscribe((res: any) => {
+      console.log(res);
+      this.snackBar.open('Kartvizit başarıyla silindi.', '', {
+        duration: 4000,
+      });
+      this.dialogRef.close(true);
+    }, error => {
+      this.snackBar.open('Kartvizit güncellenirken bir hata oluştu.', '', {
+        duration: 4000,
+      });
+    });
+  } else {
+    this.snackBar.open('Geçersiz kart ID.', '', {
+      duration: 4000,
+    });
+  }
+  this.cardService.getCards();
+  this.shopSpiner=false;
+  this.dialogRef.close(true);
+
   }
 }

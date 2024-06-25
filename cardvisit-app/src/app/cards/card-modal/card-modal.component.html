@@ -1,5 +1,9 @@
 <h2 mat-dialog-title>{{ data ? "Kartviziti Düzenle" : "Yeni Kartvizit"}}</h2>
 <mat-dialog-content class="mat-typography">
+  <div *ngIf="shopSpiner">
+    <mat-progress-bar mode="query"></mat-progress-bar>
+    <br>
+  </div>
   <form [formGroup]="cardform" class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Title</mat-label>
@@ -25,6 +29,11 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Vazgeç</button>
-  <button mat-button (click)="data ? updateCard() : addCard()">{{ data ? "Düzenle":"Ekle"}}</button>
+  <div class="flex-grow-1 text-start" *ngIf="data">
+    <button mat-stroked-button color="warn" (click)="deleteCard()" [disabled]="shopSpiner">Sil</button>
+  </div>
+  <div>
+    <button mat-button mat-dialog-close>Vazgeç</button>
+    <button mat-flat-button color="primary" (click)="data ? updateCard() : addCard()" [disabled]="cardform.invalid || shopSpiner">{{ data ? "Düzenle":"Ekle"}}</button>
+  </div>
 </mat-dialog-actions>

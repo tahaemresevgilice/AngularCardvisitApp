@@ -1,44 +1,36 @@
 {
   "cards": [
     {
-      "name": "Taha Emre Sevgilice",
+      "name": "Emre Sevgilice",
       "title": "Fullstack Devoloper",
       "phone": "5510620389",
-      "email": "scaryemre@gmail.com",
+      "email": "Tahaemresevgilice637@gmail.com",
       "address": "Pendik,İstanbul",
       "id": "1"
     },
     {
       "name": "Can Aksoy",
-      "title": "Full Stack Devoloper",
+      "title": "Fullstack Devoloper",
       "phone": "5527894558",
-      "email": "canaksy@gmail.com",
+      "email": "canaksoy@gmail.com",
       "address": "Kadıköy,İstanbul",
       "id": "34e8"
     },
     {
-      "name": "Mehmet Yılmaz",
-      "title": "Software Security",
-      "phone": "5387914565",
-      "email": "mhmtylmzz@gmail.com",
-      "address": "Pendik,İstanbul",
-      "id": "c32b"
-    },
-    {
-      "id": "3942",
       "name": "Ömer Talha Güngör",
       "title": "Backand Devoloper",
       "phone": "5387054879",
       "email": "omertlha@gmail.com",
-      "address": "Kaynarca,Pendik,İstanbul"
+      "address": "Kaynarca,Pendik,İstanbul",
+      "id": "3942"
     },
     {
-      "id": "6692",
-      "name": "",
-      "title": "deneme5",
-      "phone": "5515151547",
-      "email": "",
-      "address": ""
+      "name": "Mehmet Demir",
+      "title": "Syber Scuruty",
+      "phone": "5554417894",
+      "email": "mehmet@demir.com",
+      "address": "Bornova,İzmir",
+      "id": "0003"
     }
   ]
 }

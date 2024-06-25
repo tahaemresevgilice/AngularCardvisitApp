@@ -7,14 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CardService implements OnInit {
+  cards!: Card[];
   constructor(@Inject('api') private api:string, private http:HttpClient) { }
 
   ngOnInit(){
 
   }
 
-  getCards():Observable<Card[]> {
-    return this.http.get<Card[]>(this.api +"cards");
+  getCards():void{
+    this.http.get<Card[]>(this.api +"cards").subscribe((res: Card[])=>{
+      this.cards = res;
+    });
   }
 
   addCard(card:Card){
@@ -23,5 +26,8 @@ export class CardService implements OnInit {
 
   updateCard(card:Card,cardId:number) :Observable<any>{
     return this.http.put(this.api + "cards/" + cardId , card);
+  }
+  deleteCard(cardId:number):Observable<any>{
+    return this.http.delete(this.api + "cards/" + cardId);
   }
 }
