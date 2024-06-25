@@ -1,0 +1,17 @@
+<main>
+    <div class="d-flex align-items-center">
+      <div class="flex-grow-1">
+        <h1 class="page-title">Katvizitler</h1>
+        <p class="page-description">Bu ekrandan kartvizitlerinizi yönetebilirsiniz</p>
+      </div>
+      <button mat-flat-button color="primary" (click)="openAddCardModal()">Yeni Kartvizit</button>
+    </div>
+    <hr>
+  <div class="cards">
+    <div class="row">
+      <div class="col-12 col-md-3">
+        <app-card-item [cardItem]="cardItem"></app-card-item>
+      </div>
+    </div>
+  </div>
+</main>
